@@ -1,22 +1,15 @@
 import {AuthService} from './auth/auth.service';
-import {HttpClientHandler} from '../../http/HttpClient';
+import {HttpClientHandler} from '../../http/HttpClientHandler';
 import {AvailableHttpClients} from '../../http/availableHttpClient.enum';
 
 export default class ServiceHandler {
-    private static services = [];
+    private static services = {};
 
-    static createService(serviceName,) {
-        switch (serviceName) {
-            case 'auth.AuthService':
-                return new AuthService(HttpClientHandler.getClient(AvailableHttpClients.DEFAULT));
-                break;
-        }
+    static init() {
+        ServiceHandler.services['auth.AuthService'] = new AuthService(HttpClientHandler.getClient(AvailableHttpClients.DEFAULT));
     }
 
     static getService(serviceName: string) {
-        if (!ServiceHandler.services[serviceName]) {
-            ServiceHandler.services[serviceName] = ServiceHandler.createService(serviceName);
-        }
         return ServiceHandler.services[serviceName];
     }
 }

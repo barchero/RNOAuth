@@ -1,11 +1,7 @@
-import {authActions} from '../actions.enum';
+import {authActions} from '../authActions.enum';
 
-export default class LoginActions {
-    constructor(private dispatch) {}
-
-    login({username, password}) {
-        this.dispatch({
-            type: authActions.AUTH_LOGIN,
-        });
-    }
+export function login({username, password}) {
+    return {
+        type: authActions.AUTH_LOGIN,
+    };
 }
