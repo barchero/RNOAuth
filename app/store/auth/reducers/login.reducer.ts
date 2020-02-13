@@ -19,8 +19,12 @@ export function loginReducer(
     }
 ): LoginState {
     switch (action.type) {
-        case authActions.AUTH_LOGIN:
+        case authActions.AUTH_LOGIN_LOADING:
             return {...state, loading: true};
+        case authActions.AUTH_LOGIN_SUCCESS:
+            return {...state, loading: false};
+        case authActions.AUTH_LOGIN_ERROR:
+            return {...state, loading: false};
         default:
             return initialState;
     }
