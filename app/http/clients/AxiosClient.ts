@@ -1,6 +1,5 @@
 import {Config} from '../../conf/conf';
 import {AxiosInstance, default as axios} from 'axios';
-import axiosMiddleware from 'redux-axios-middleware';
 
 export class AxiosClient {
     private client: AxiosInstance;
@@ -18,10 +17,6 @@ export class AxiosClient {
         //
         //     }
         // }
-    }
-
-    getMiddleware() {
-        return axiosMiddleware(this.client);
     }
 
     get(path, callback) {

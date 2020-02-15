@@ -14,7 +14,7 @@ export class HttpClientHandler {
 
     private static createClient(clientNameType) {
         switch (clientNameType) {
-            case AvailableHttpClients.DEFAULT:
+            case AvailableHttpClients.AXIOS:
                 return new AxiosClient();
         }
     }

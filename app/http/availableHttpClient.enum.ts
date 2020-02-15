@@ -1,3 +1,3 @@
 export enum AvailableHttpClients {
-    DEFAULT = 'DEFAULT'
+    AXIOS = 'AXIOS'
 }

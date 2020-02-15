@@ -6,7 +6,7 @@ export default class ServiceHandler {
     private static services = {};
 
     static init() {
-        ServiceHandler.services['auth.AuthService'] = new AuthService(HttpClientHandler.getClient(AvailableHttpClients.DEFAULT));
+        ServiceHandler.services['auth.AuthService'] = new AuthService(HttpClientHandler.getClient(AvailableHttpClients.AXIOS));
     }
 
     static getService(serviceName: string) {
